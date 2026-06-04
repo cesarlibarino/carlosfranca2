@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Carlos França | Performance & Estética</title>
+
+<!-- TAILWIND -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- ICONS -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily:{
+sans:['Plus Jakarta Sans','sans-serif']
+},
+colors:{
+brand:{
+green:'#0C9B2D',
+red:'#A5142B',
+dark:'#050505',
+white:'#F5F5F5'
+}
+}
+}
+}
+}
+</script>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#050505;
+overflow-x:hidden;
+font-family:'Plus Jakarta Sans',sans-serif;
+color:#fff;
+}
+
+/* WATERMARK */
+
+.watermark{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:url('images/watermark.jpg');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+opacity:0.10;
+
+z-index:0;
+pointer-events:none;
+}
+
+/* OVERLAY */
+
+.dark-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.82);
+z-index:1;
+}
+
+/* GRID */
+
+.hero-grid{
+position:absolute;
+inset:0;
+
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+background-size:40px 40px;
+
+z-index:1;
+pointer-events:none;
+}
+
+/* GLOW */
+
+.glow-green{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:999px;
+background:rgba(12,155,45,.18);
+filter:blur(120px);
+z-index:1;
+}
+
+.glow-red{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:999px;
+background:rgba(165,20,43,.18);
+filter:blur(120px);
+z-index:1;
+}
+
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* BUTTON */
+
+.primary-btn{
+background:linear-gradient(135deg,#0C9B2D,#087923);
+transition:.3s;
+box-shadow:0 20px 60px rgba(12,155,45,.25);
+}
+
+.primary-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 80px rgba(12,155,45,.4);
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(12,155,45,.35);
+}
+
+/* TITLE */
+
+.section-title{
+line-height:.92;
+letter-spacing:-0.06em;
+}
+
+/* IMAGES */
+
+.hero-image{
+max-height:780px;
+object-fit:cover;
+border-radius:36px;
+border:1px solid rgba(255,255,255,.08);
+position:relative;
+z-index:3;
+}
+
+.about-image{
+width:100%;
+border-radius:36px;
+border:1px solid rgba(255,255,255,.08);
+object-fit:cover;
+position:relative;
+z-index:3;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:3rem;
+line-height:.95;
+}
+
+.section-title{
+font-size:3rem !important;
+}
+
+.hero-image{
+max-height:580px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="relative min-h-screen overflow-hidden flex items-center">
+
+<div class="watermark"></div>
+<div class="dark-overlay"></div>
+<div class="hero-grid"></div>
+
+<div class="glow-green top-[-200px] left-[-100px]"></div>
+<div class="glow-red bottom-[-200px] right-[-100px]"></div>
+
+<div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
+
+<!-- LEFT -->
+
+<div class="space-y-8 reveal">
+
+<img
+src="images/logo.png"
+alt="Carlos França"
+class="w-56"
+/>
+
+<div class="inline-flex items-center gap-3 border border-white/10 bg-white/5 px-5 py-3 rounded-full text-sm tracking-[0.25em] uppercase text-brand-green font-semibold">
+Performance • Estética • Resultado Real
+</div>
+
+<h1 class="hero-title text-5xl md:text-7xl font-black section-title max-w-4xl">
+Transforme seu físico com estratégia, performance e constância.
+</h1>
+
+<p class="text-zinc-400 text-xl leading-relaxed max-w-2xl">
+Treino e nutrição aplicados de forma inteligente para quem busca evolução estética, definição muscular e performance sem extremismos.
+</p>
+
+<div class="flex flex-wrap gap-5 pt-2">
+
+<a
+href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
+class="primary-btn px-10 py-5 rounded-2xl font-bold text-lg"
+>
+QUERO COMEÇAR AGORA
+</a>
+
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-10 pt-10">
+
+<div>
+<h3 class="text-4xl font-black text-brand-green">5+</h3>
+<p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
+anos de vivência em competições
+</p>
+</div>
+
+<div>
+<h3 class="text-4xl font-black text-brand-red">1000+</h3>
+<p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
+vidas transformadas
+</p>
+</div>
+
+<div>
+<h3 class="text-4xl font-black">Online</h3>
+<p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
+consultoria personalizada
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="relative flex justify-center reveal">
+
+<div class="absolute w-[420px] h-[420px] rounded-full bg-brand-green/20 blur-[120px] z-[1]"></div>
+
+<img
+src="images/hero.jpg"
+alt="Carlos França"
+class="hero-image"
+/>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROBLEMAS -->
+
+<section class="relative py-32 overflow-hidden">
+
+<div class="watermark"></div>
+<div class="dark-overlay"></div>
+
+<div class="max-w-6xl mx-auto px-6 relative z-[2]">
+
+<div class="max-w-3xl mb-20 reveal">
+
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
+O problema
+</span>
+
+<h2 class="text-4xl md:text-6xl font-black mt-6 section-title">
+Seu corpo não muda por falta de esforço.
+</h2>
+
+<p class="text-zinc-400 text-xl mt-8 leading-relaxed">
+A maioria das pessoas vive presa entre dietas extremas, treinos sem direção e resultados que nunca permanecem.
+</p>
+
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Dietas extremas
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Protocolos impossíveis de sustentar.
+</p>
+</div>
+
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Treinos aleatórios
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Muito esforço e pouca estratégia.
+</p>
+</div>
+
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Resultados temporários
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Você evolui e depois regride.
+</p>
+</div>
+
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Baixa autoestima
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Seu físico começa a afetar sua confiança.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="relative py-32 overflow-hidden">
+
+<div class="watermark"></div>
+<div class="dark-overlay"></div>
+
+<div class="glow-red top-[-200px] right-[-100px]"></div>
+
+<div class="max-w-7xl mx-auto px-6 relative z-[2]">
+
+<div class="text-center max-w-4xl mx-auto mb-24 reveal">
+
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
+RESULTADOS REAIS
+</span>
+
+<h2 class="text-5xl md:text-6xl font-black mt-6 section-title">
+Estética construída na prática.
+</h2>
+
+<p class="text-zinc-400 text-xl mt-8 leading-relaxed">
+Performance, definição e construção física aplicadas de forma estratégica e sustentável.
+</p>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="reveal">
+<img
+src="images/pose1.jpg"
+alt="Carlos França"
+class="rounded-[32px] w-full h-[650px] object-cover border border-white/10"
+/>
+</div>
+
+<div class="reveal">
+<img
+src="images/pose2.jpg"
+alt="Carlos França"
+class="rounded-[32px] w-full h-[650px] object-cover border border-white/10"
+/>
+</div>
+
+<div class="reveal">
+<img
+src="images/pose3.jpg"
+alt="Carlos França"
+class="rounded-[32px] w-full h-[650px] object-cover border border-white/10"
+/>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section class="relative py-32 overflow-hidden">
+
+<div class="watermark"></div>
+<div class="dark-overlay"></div>
+
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
+
+<div class="reveal">
+
+<img
+src="images/about.jpg"
+alt="Carlos França"
+class="about-image"
+/>
+
+</div>
+
+<div class="reveal">
+
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
+Carlos França
+</span>
+
+<h2 class="text-5xl font-black mt-6 mb-8 section-title">
+Experiência prática aplicada à transformação física.
+</h2>
+
+<div class="space-y-6 text-zinc-400 text-lg leading-relaxed">
+
+<p>
+Carlos França une treino, nutrição e experiência prática em competições para ajudar pessoas a construírem um físico forte, estético e sustentável.
+</p>
+
+<p>
+Sua abordagem combina performance, estética e consistência sem extremismos.
+</p>
+
+<p>
+Tudo aplicado de forma personalizada para sua realidade e objetivo.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="relative py-32 overflow-hidden">
+
+<div class="watermark"></div>
+<div class="dark-overlay"></div>
+
+<div class="glow-green bottom-[-200px] left-[-100px]"></div>
+
+<div class="max-w-4xl mx-auto px-6 text-center relative z-[2] reveal">
+
+<span class="text-brand-red uppercase tracking-[0.25em] text-sm font-semibold">
+Consultoria personalizada
+</span>
+
+<h2 class="text-5xl md:text-7xl font-black mt-8 section-title">
+Sua melhor versão começa agora.
+</h2>
+
+<p class="text-zinc-400 text-xl leading-relaxed mt-10 max-w-2xl mx-auto">
+Clique no botão abaixo e fale diretamente comigo para iniciar sua transformação física.
+</p>
+
+<a
+href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
+class="inline-flex mt-14 primary-btn px-12 py-6 rounded-2xl font-black text-lg"
+>
+QUERO MINHA CONSULTORIA
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+lucide.createIcons();
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+
+reveals.forEach((element)=>{
+
+const windowHeight = window.innerHeight;
+const elementTop = element.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 80){
+element.classList.add('active');
+}
+
+});
+
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+revealOnScroll();
+
+</script>
+
+</body>
+</html>
