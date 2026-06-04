@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -27,7 +26,12 @@
       overflow-x:hidden;
     }
 
-    /* WATERMARK GLOBAL */
+    .section{
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* WATERMARK */
     .watermark{
       position:absolute;
       inset:0;
@@ -35,28 +39,31 @@
       background-repeat:no-repeat;
       background-position:center;
       background-size:contain;
-      opacity:0.06;
+      opacity:0.05;
       z-index:0;
       pointer-events:none;
     }
 
+    /* OVERLAY */
     .dark-overlay{
       position:absolute;
       inset:0;
       background:linear-gradient(
         to bottom,
-        rgba(0,0,0,0.90),
-        rgba(0,0,0,0.84),
-        rgba(0,0,0,0.90)
+        rgba(0,0,0,0.92),
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.92)
       );
       z-index:1;
     }
 
+    /* CONTEÚDO */
     .content{
       position:relative;
       z-index:2;
     }
 
+    /* GLOW */
     .green-glow{
       position:absolute;
       width:400px;
@@ -73,31 +80,28 @@
       height:350px;
       background:#b10f2e;
       filter:blur(150px);
-      opacity:.14;
+      opacity:.12;
       border-radius:999px;
     }
 
+    /* GLASS */
     .glass{
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.08);
       backdrop-filter:blur(10px);
     }
 
+    /* BOTÃO */
     .btn-main{
-      background:linear-gradient(90deg,#00a82d,#0ed145);
+      background:linear-gradient(90deg,#009b2a,#0fd14b);
       color:white;
       font-weight:bold;
       transition:.3s;
     }
 
     .btn-main:hover{
-      transform:translateY(-3px);
+      transform:translateY(-4px);
       box-shadow:0 0 30px rgba(0,168,45,.35);
-    }
-
-    .section{
-      position:relative;
-      overflow:hidden;
     }
 
     .title-gradient{
@@ -120,7 +124,7 @@
     <!-- OVERLAY -->
     <div class="dark-overlay"></div>
 
-    <!-- GLOW -->
+    <!-- GLOWS -->
     <div class="green-glow top-[-100px] left-[-120px]"></div>
     <div class="red-glow bottom-[-100px] right-[-100px]"></div>
 
@@ -130,18 +134,25 @@
       <!-- TEXTO -->
       <div>
 
+        <!-- LOGO -->
+        <img
+          src="./logo.png"
+          alt="Carlos França"
+          class="w-[180px] mb-8"
+        />
+
         <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
           CARLOS FRANÇA
         </span>
 
         <h1 class="text-5xl lg:text-7xl font-black leading-none mt-6">
-          Transforme seu físico com quem vive isso há 
+          Transforme seu físico com quem vive isso há
           <span class="title-gradient">5 anos na prática.</span>
         </h1>
 
         <p class="text-white/70 text-lg leading-relaxed mt-8 max-w-xl">
           Treino, estratégia e acompanhamento aplicados na vida real.
-          Sem extremismo. Sem fórmulas prontas.
+          Sem terrorismo nutricional. Sem fórmulas milagrosas.
           Apenas resultado consistente e sustentável.
         </p>
 
@@ -167,7 +178,7 @@
         <div class="absolute inset-0 bg-green-500/10 blur-3xl rounded-full"></div>
 
         <img
-          src="./hero.png"
+          src="./hero.jpg"
           alt="Carlos França"
           class="relative z-10 w-full max-w-[520px] object-contain"
         />
@@ -186,16 +197,18 @@
 
     <div class="content max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
+      <!-- FOTO -->
       <div>
 
         <img
-          src="./sobre.jpg"
+          src="./about.jpg"
           alt="Carlos França"
           class="rounded-3xl w-full shadow-2xl"
         />
 
       </div>
 
+      <!-- TEXTO -->
       <div>
 
         <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
@@ -213,7 +226,7 @@
 
         <p class="text-white/70 leading-relaxed mt-6 text-lg">
           Sua abordagem combina performance, consistência e estratégia individual
-          para gerar resultado sem terrorismo nutricional ou métodos extremos.
+          para gerar resultado sem métodos extremos ou protocolos genéricos.
         </p>
 
         <div class="grid grid-cols-2 gap-6 mt-10">
@@ -259,6 +272,7 @@
       <div class="grid md:grid-cols-3 gap-8 mt-20">
 
         <div class="glass rounded-3xl p-10">
+
           <h3 class="text-2xl font-bold mb-5 text-green-500">
             Estratégia personalizada
           </h3>
@@ -268,20 +282,24 @@
             Cada pessoa recebe uma estrutura baseada na sua realidade,
             rotina e objetivo.
           </p>
+
         </div>
 
         <div class="glass rounded-3xl p-10">
+
           <h3 class="text-2xl font-bold mb-5 text-red-500">
             Experiência prática
           </h3>
 
           <p class="text-white/70 leading-relaxed">
-            Aplicação real de treino e nutrição baseada em vivência,
-            consistência e experiência competitiva.
+            Aplicação real de treino e nutrição baseada em experiência,
+            consistência e vivência competitiva.
           </p>
+
         </div>
 
         <div class="glass rounded-3xl p-10">
+
           <h3 class="text-2xl font-bold mb-5 text-white">
             Resultado sustentável
           </h3>
@@ -290,6 +308,7 @@
             O foco é transformar o físico sem destruir sua rotina,
             sua saúde ou sua relação com alimentação.
           </p>
+
         </div>
 
       </div>
@@ -309,7 +328,7 @@
     <div class="content max-w-5xl mx-auto px-6 text-center">
 
       <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-        COMEÇE AGORA
+        COMECE AGORA
       </span>
 
       <h2 class="text-4xl lg:text-7xl font-black mt-6 leading-none">
@@ -333,4 +352,3 @@
 
 </body>
 </html>
-```
