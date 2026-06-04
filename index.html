@@ -30,7 +30,7 @@
       background-repeat:no-repeat;
       background-position:center;
       background-size:contain;
-      opacity:0.045;
+      opacity:0.04;
       z-index:0;
       pointer-events:none;
     }
@@ -39,9 +39,9 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at top left, rgba(0,168,45,.16), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(177,15,46,.12), transparent 35%),
-        linear-gradient(to bottom, rgba(0,0,0,.94), rgba(0,0,0,.86), rgba(0,0,0,.95));
+        radial-gradient(circle at top left, rgba(0,168,45,.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(177,15,46,.10), transparent 34%),
+        linear-gradient(to bottom, rgba(0,0,0,.95), rgba(0,0,0,.88), rgba(0,0,0,.96));
       z-index:1;
     }
 
@@ -52,21 +52,21 @@
 
     .green-glow{
       position:absolute;
-      width:420px;
-      height:420px;
+      width:380px;
+      height:380px;
       background:#00a82d;
-      filter:blur(160px);
-      opacity:.18;
+      filter:blur(150px);
+      opacity:.16;
       border-radius:999px;
     }
 
     .red-glow{
       position:absolute;
-      width:360px;
-      height:360px;
+      width:320px;
+      height:320px;
       background:#b10f2e;
-      filter:blur(150px);
-      opacity:.12;
+      filter:blur(140px);
+      opacity:.10;
       border-radius:999px;
     }
 
@@ -74,7 +74,7 @@
       background:rgba(255,255,255,0.035);
       border:1px solid rgba(255,255,255,0.09);
       backdrop-filter:blur(12px);
-      box-shadow:0 20px 80px rgba(0,0,0,.25);
+      box-shadow:0 20px 80px rgba(0,0,0,.22);
     }
 
     .btn-main{
@@ -105,12 +105,6 @@
       -webkit-text-fill-color:transparent;
     }
 
-    .soft-line{
-      width:100%;
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
-    }
-
     .badge{
       background:rgba(0,168,45,.10);
       border:1px solid rgba(0,209,63,.25);
@@ -127,9 +121,64 @@
       background:rgba(255,255,255,.055);
     }
 
+    .soft-line{
+      width:100%;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+    }
+
+    .check{
+      color:#21e65d;
+      font-weight:900;
+      margin-right:8px;
+    }
+
+    details summary::-webkit-details-marker{
+      display:none;
+    }
+
     @media(max-width:768px){
+      .hero-section{
+        min-height:auto;
+      }
+
+      .hero-wrap{
+        padding-top:34px;
+        padding-bottom:60px;
+        gap:32px;
+      }
+
+      .hero-logo{
+        width:125px;
+        margin-bottom:20px;
+      }
+
       .hero-title{
-        font-size:3rem;
+        font-size:2.65rem;
+        line-height:.98;
+      }
+
+      .hero-text{
+        font-size:1rem;
+      }
+
+      .hero-img{
+        max-width:330px;
+      }
+
+      .mobile-center{
+        text-align:center;
+      }
+
+      .mobile-buttons{
+        justify-content:center;
+      }
+
+      .floating-card{
+        position:relative !important;
+        left:auto !important;
+        bottom:auto !important;
+        margin:18px auto 0;
       }
     }
   </style>
@@ -138,65 +187,65 @@
 <body>
 
   <!-- HERO -->
-  <section class="section min-h-screen flex items-center relative">
+  <section class="section hero-section min-h-screen flex items-center relative">
     <div class="watermark"></div>
     <div class="dark-overlay"></div>
 
     <div class="green-glow top-[-120px] left-[-120px]"></div>
     <div class="red-glow bottom-[-120px] right-[-120px]"></div>
 
-    <div class="content max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="content hero-wrap max-w-7xl mx-auto px-6 py-14 lg:py-16 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-      <div>
-        <img src="./logo.png" alt="Carlos França" class="w-[180px] mb-8" />
+      <div class="mobile-center">
+        <img src="./logo.png" alt="Carlos França" class="hero-logo w-[150px] mb-6" />
 
         <span class="badge inline-block uppercase tracking-[3px] text-xs font-black px-5 py-3 rounded-full">
           Treinamento • Nutrição • Performance
         </span>
 
-        <h1 class="hero-title text-5xl lg:text-7xl font-black leading-none mt-7">
-          Construa um físico forte, estético e saudável com uma estratégia feita para a sua rotina.
+        <h1 class="hero-title text-5xl lg:text-6xl xl:text-7xl font-black leading-[.95] mt-7 max-w-2xl">
+          Seu físico precisa de estratégia, não de mais tentativa.
         </h1>
 
-        <p class="text-white/72 text-lg lg:text-xl leading-relaxed mt-8 max-w-xl">
-          Acompanhamento personalizado para quem quer evoluir de verdade, sem treino aleatório, sem dieta impossível e sem depender de motivação.
+        <p class="hero-text text-white/72 text-lg leading-relaxed mt-7 max-w-xl">
+          Treino, nutrição e acompanhamento individual para quem quer evoluir com método, consistência e direção.
         </p>
 
-        <div class="grid sm:grid-cols-3 gap-4 mt-8 max-w-2xl">
-          <div class="glass rounded-2xl p-4">
-            <p class="text-green-400 font-black">01</p>
-            <p class="text-sm text-white/70 mt-1">Plano ajustado à sua realidade</p>
+        <div class="grid sm:grid-cols-2 gap-3 mt-7 max-w-xl">
+          <div class="glass rounded-2xl p-4 text-left">
+            <p class="text-sm text-white/75"><span class="check">✓</span>Plano ajustado à sua rotina</p>
           </div>
-          <div class="glass rounded-2xl p-4">
-            <p class="text-green-400 font-black">02</p>
-            <p class="text-sm text-white/70 mt-1">Treino com direção e progressão</p>
+          <div class="glass rounded-2xl p-4 text-left">
+            <p class="text-sm text-white/75"><span class="check">✓</span>Treino com progressão</p>
           </div>
-          <div class="glass rounded-2xl p-4">
-            <p class="text-green-400 font-black">03</p>
-            <p class="text-sm text-white/70 mt-1">Acompanhamento estratégico</p>
+          <div class="glass rounded-2xl p-4 text-left">
+            <p class="text-sm text-white/75"><span class="check">✓</span>Direção nutricional</p>
+          </div>
+          <div class="glass rounded-2xl p-4 text-left">
+            <p class="text-sm text-white/75"><span class="check">✓</span>Ajustes durante a evolução</p>
           </div>
         </div>
 
-        <div class="flex flex-wrap gap-4 mt-10">
+        <div class="mobile-buttons flex flex-wrap gap-4 mt-9">
           <a href="#contato" class="btn-main px-8 py-4 rounded-full">
-            QUERO COMEÇAR MINHA EVOLUÇÃO
+            QUERO COMEÇAR
           </a>
 
           <a href="#metodo" class="btn-secondary glass px-8 py-4 rounded-full">
-            Ver como funciona
+            Como funciona
           </a>
         </div>
       </div>
 
-      <div class="relative flex justify-center">
+      <div class="relative flex justify-center lg:justify-end">
         <div class="absolute inset-0 bg-green-500/10 blur-3xl rounded-full"></div>
 
         <div class="relative">
-          <img src="./hero.jpg" alt="Carlos França" class="relative z-10 w-full max-w-[540px] object-contain" />
+          <img src="./hero.jpg" alt="Carlos França" class="hero-img relative z-10 w-full max-w-[480px] object-contain" />
 
-          <div class="absolute bottom-6 left-0 lg:left-[-35px] z-20 glass rounded-3xl p-5 max-w-[260px]">
-            <p class="text-3xl font-black text-green-400">+15 anos</p>
-            <p class="text-white/70 text-sm mt-1">vivendo o estilo de vida que ensina.</p>
+          <div class="floating-card absolute bottom-8 left-[-35px] z-20 glass rounded-3xl p-5 max-w-[260px] text-left">
+            <p class="text-3xl font-black text-green-400">+1000</p>
+            <p class="text-white/70 text-sm mt-1">pessoas impactadas com uma visão voltada para saúde, estética e performance.</p>
           </div>
         </div>
       </div>
@@ -204,57 +253,96 @@
     </div>
   </section>
 
-  <!-- PROBLEMA -->
-  <section class="section py-28 relative">
+  <!-- PARA QUEM É -->
+  <section class="section py-24 relative">
     <div class="watermark"></div>
     <div class="dark-overlay"></div>
 
     <div class="content max-w-7xl mx-auto px-6">
-      <div class="max-w-4xl mx-auto text-center">
+      <div class="max-w-3xl">
         <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-          O PROBLEMA NÃO É FALTA DE ESFORÇO
+          PARA QUEM É
         </span>
 
         <h2 class="text-4xl lg:text-6xl font-black mt-5 leading-tight">
-          O que trava seu resultado é seguir um plano que não foi feito para você.
+          Para quem quer transformar o físico sem depender de achismo.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-14">
+        <div class="glass card-hover rounded-3xl p-8">
+          <h3 class="text-2xl font-black mb-4">Quer ganhar massa</h3>
+          <p class="text-white/70 leading-relaxed">
+            Para quem busca construir volume, força e estética com treino estruturado e alimentação coerente.
+          </p>
+        </div>
+
+        <div class="glass card-hover rounded-3xl p-8">
+          <h3 class="text-2xl font-black mb-4">Quer secar com estratégia</h3>
+          <p class="text-white/70 leading-relaxed">
+            Para quem quer reduzir gordura sem cair em dietas extremas, restrições sem sentido ou efeito sanfona.
+          </p>
+        </div>
+
+        <div class="glass card-hover rounded-3xl p-8">
+          <h3 class="text-2xl font-black mb-4">Quer performance</h3>
+          <p class="text-white/70 leading-relaxed">
+            Para quem já treina, mas sente que está estagnado e precisa de ajustes para evoluir de verdade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJEÇÕES -->
+  <section class="section py-24 relative">
+    <div class="watermark"></div>
+    <div class="dark-overlay"></div>
+
+    <div class="content max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
+          QUEBRA DE OBJEÇÕES
+        </span>
+
+        <h2 class="text-4xl lg:text-6xl font-black mt-5 leading-tight">
+          Você não precisa viver uma rotina perfeita para ter resultado.
         </h2>
 
         <p class="text-white/70 text-lg leading-relaxed mt-7">
-          Muita gente treina pesado, tenta comer melhor e mesmo assim não evolui porque falta estratégia, ajuste e acompanhamento. Resultado físico não vem de improviso. Vem de direção.
+          O problema não é você. Muitas vezes, o problema é seguir um plano que ignora sua realidade, sua rotina, seu nível atual e suas dificuldades.
         </p>
+
+        <a href="#contato" class="btn-main inline-block px-8 py-4 rounded-full mt-9">
+          FALAR COM CARLOS
+        </a>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 mt-16">
-        <div class="glass card-hover rounded-3xl p-8">
-          <h3 class="text-2xl font-black mb-4">Treinos soltos</h3>
-          <p class="text-white/70 leading-relaxed">
-            Fazer exercícios sem progressão clara pode até cansar, mas nem sempre constrói resultado.
-          </p>
+      <div class="grid gap-5">
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-black text-xl mb-2"><span class="check">✓</span>“Não tenho muito tempo”</h3>
+          <p class="text-white/70">O treino precisa ser eficiente para sua rotina, não copiado de quem vive outra realidade.</p>
         </div>
 
-        <div class="glass card-hover rounded-3xl p-8">
-          <h3 class="text-2xl font-black mb-4">Dieta impossível</h3>
-          <p class="text-white/70 leading-relaxed">
-            Protocolos extremos funcionam por poucos dias. O físico muda quando a estratégia cabe na rotina.
-          </p>
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-black text-xl mb-2"><span class="check">✓</span>“Já tentei e parei várias vezes”</h3>
+          <p class="text-white/70">Acompanhamento serve justamente para dar direção, ajuste e constância no processo.</p>
         </div>
 
-        <div class="glass card-hover rounded-3xl p-8">
-          <h3 class="text-2xl font-black mb-4">Falta de ajuste</h3>
-          <p class="text-white/70 leading-relaxed">
-            Seu corpo responde, estagna e muda. O acompanhamento existe para ajustar o caminho.
-          </p>
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-black text-xl mb-2"><span class="check">✓</span>“Tenho medo de dieta impossível”</h3>
+          <p class="text-white/70">A estratégia nutricional precisa ser aplicável, sustentável e alinhada ao seu objetivo.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SOBRE -->
-  <section id="sobre" class="section py-28 relative">
+  <section id="sobre" class="section py-24 relative">
     <div class="watermark"></div>
     <div class="dark-overlay"></div>
 
-    <div class="content max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+    <div class="content max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
       <div>
         <img src="./about.jpg" alt="Carlos França" class="rounded-3xl w-full shadow-2xl" />
@@ -265,19 +353,22 @@
           EXPERIÊNCIA REAL
         </span>
 
-        <h2 class="text-4xl lg:text-6xl font-black leading-none mt-5">
-          Método construído por quem estuda, aplica e vive alta performance.
+        <h2 class="text-4xl lg:text-6xl font-black leading-tight mt-5">
+          Conhecimento técnico com vivência prática de alta performance.
         </h2>
 
-        <p class="text-white/70 leading-relaxed mt-8 text-lg">
-          Carlos França é formado em Educação Física, Nutrição, possui pós-graduações na área de fisiologia e treinamento esportivo, além de viver o fisiculturismo de alta performance na prática.
+        <p class="text-white/70 leading-relaxed mt-7 text-lg">
+          Carlos França é formado em Educação Física e Nutrição, possui pós-graduações em fisiologia e treinamento esportivo, além de viver o fisiculturismo de alta performance como atleta amador.
         </p>
 
-        <p class="text-white/70 leading-relaxed mt-6 text-lg">
-          Desde 2018 atua como treinador, unindo conhecimento técnico, experiência de campo e vivência real para conduzir pessoas que buscam saúde, estética e performance com mais clareza.
-        </p>
+        <div class="grid gap-4 mt-8">
+          <p class="text-white/75"><span class="check">✓</span>Atua como treinador desde 2018</p>
+          <p class="text-white/75"><span class="check">✓</span>Mais de 15 anos vivendo esse estilo de vida</p>
+          <p class="text-white/75"><span class="check">✓</span>Visão voltada para saúde, estética e performance</p>
+          <p class="text-white/75"><span class="check">✓</span>Método aplicado em diferentes objetivos e rotinas</p>
+        </div>
 
-        <div class="grid grid-cols-2 gap-6 mt-10">
+        <div class="grid grid-cols-2 gap-5 mt-9">
           <div class="glass rounded-3xl p-6">
             <h3 class="text-4xl font-black text-green-500">2018</h3>
             <p class="text-white/70 mt-2">Atuando como treinador</p>
@@ -285,7 +376,7 @@
 
           <div class="glass rounded-3xl p-6">
             <h3 class="text-4xl font-black text-red-500">+1000</h3>
-            <p class="text-white/70 mt-2">pessoas impactadas pelo método</p>
+            <p class="text-white/70 mt-2">pessoas impactadas</p>
           </div>
         </div>
       </div>
@@ -294,7 +385,7 @@
   </section>
 
   <!-- MÉTODO -->
-  <section id="metodo" class="section py-28 relative">
+  <section id="metodo" class="section py-24 relative">
     <div class="watermark"></div>
     <div class="dark-overlay"></div>
 
@@ -306,16 +397,16 @@
         </span>
 
         <h2 class="text-4xl lg:text-6xl font-black mt-5">
-          Uma estratégia completa para transformar físico com consistência.
+          Um processo simples, direto e personalizado.
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-4 gap-6 mt-20">
+      <div class="grid md:grid-cols-4 gap-6 mt-16">
         <div class="glass card-hover rounded-3xl p-7">
           <span class="text-green-400 font-black text-3xl">01</span>
           <h3 class="text-xl font-black mt-5 mb-3">Avaliação</h3>
           <p class="text-white/70 leading-relaxed">
-            Entendimento da sua rotina, objetivo, histórico e ponto de partida.
+            Entendimento da sua rotina, objetivo, histórico, dificuldades e nível atual.
           </p>
         </div>
 
@@ -323,7 +414,7 @@
           <span class="text-green-400 font-black text-3xl">02</span>
           <h3 class="text-xl font-black mt-5 mb-3">Estratégia</h3>
           <p class="text-white/70 leading-relaxed">
-            Definição do caminho mais inteligente para seu corpo evoluir.
+            Construção do plano de treino e direcionamento nutricional de forma individual.
           </p>
         </div>
 
@@ -331,7 +422,7 @@
           <span class="text-green-400 font-black text-3xl">03</span>
           <h3 class="text-xl font-black mt-5 mb-3">Execução</h3>
           <p class="text-white/70 leading-relaxed">
-            Treino e direcionamento nutricional com clareza para aplicar no dia a dia.
+            Clareza sobre o que fazer, como fazer e como manter consistência.
           </p>
         </div>
 
@@ -339,7 +430,7 @@
           <span class="text-green-400 font-black text-3xl">04</span>
           <h3 class="text-xl font-black mt-5 mb-3">Ajustes</h3>
           <p class="text-white/70 leading-relaxed">
-            Acompanhamento para corrigir rota, manter evolução e evitar estagnação.
+            Acompanhamento para corrigir rota, evitar estagnação e manter evolução.
           </p>
         </div>
       </div>
@@ -347,8 +438,8 @@
     </div>
   </section>
 
-  <!-- DIFERENCIAIS -->
-  <section class="section py-28 relative">
+  <!-- BENEFÍCIOS -->
+  <section class="section py-24 relative">
     <div class="watermark"></div>
     <div class="dark-overlay"></div>
 
@@ -356,46 +447,35 @@
 
       <div class="text-center max-w-3xl mx-auto">
         <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-          DIFERENCIAIS
+          O QUE VOCÊ RECEBE
         </span>
 
         <h2 class="text-4xl lg:text-6xl font-black mt-5">
-          Não é só treino. É direção, método e acompanhamento.
+          Mais clareza, mais direção e menos improviso.
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 mt-20">
-
-        <div class="glass card-hover rounded-3xl p-10">
-          <h3 class="text-2xl font-bold mb-5 text-green-500">
-            Plano individualizado
-          </h3>
-
+      <div class="grid md:grid-cols-3 gap-8 mt-16">
+        <div class="glass card-hover rounded-3xl p-9">
+          <h3 class="text-2xl font-bold mb-5 text-green-500">Treino personalizado</h3>
           <p class="text-white/70 leading-relaxed">
-            A estratégia é construída considerando sua rotina, objetivo, nível atual, disponibilidade e dificuldades reais.
+            Estrutura pensada para seu objetivo, nível, disponibilidade e capacidade de evolução.
           </p>
         </div>
 
-        <div class="glass card-hover rounded-3xl p-10">
-          <h3 class="text-2xl font-bold mb-5 text-red-500">
-            Visão de treino e nutrição
-          </h3>
-
+        <div class="glass card-hover rounded-3xl p-9">
+          <h3 class="text-2xl font-bold mb-5 text-red-500">Nutrição estratégica</h3>
           <p class="text-white/70 leading-relaxed">
-            Acompanhamento com olhar integrado para performance, estética, composição corporal e saúde.
+            Direcionamento alimentar para sustentar performance, estética e consistência.
           </p>
         </div>
 
-        <div class="glass card-hover rounded-3xl p-10">
-          <h3 class="text-2xl font-bold mb-5 text-white">
-            Resultado sustentável
-          </h3>
-
+        <div class="glass card-hover rounded-3xl p-9">
+          <h3 class="text-2xl font-bold mb-5 text-white">Acompanhamento</h3>
           <p class="text-white/70 leading-relaxed">
-            O objetivo é fazer você evoluir sem depender de extremos, atalhos ou protocolos impossíveis de manter.
+            Ajustes feitos com base na sua evolução, evitando que você fique perdido no processo.
           </p>
         </div>
-
       </div>
 
     </div>
@@ -423,25 +503,25 @@
             O acompanhamento é personalizado?
           </summary>
           <p class="text-white/70 mt-4 leading-relaxed">
-            Sim. A estratégia é pensada de acordo com sua rotina, objetivo, experiência, dificuldades e evolução.
+            Sim. O plano é construído considerando sua rotina, objetivo, experiência, limitações e evolução.
           </p>
         </details>
 
         <details class="glass rounded-3xl p-6">
           <summary class="cursor-pointer font-bold text-lg">
-            Preciso já estar treinando para começar?
+            Serve para quem está começando?
           </summary>
           <p class="text-white/70 mt-4 leading-relaxed">
-            Não. O plano pode ser ajustado tanto para iniciantes quanto para pessoas que já treinam e querem evoluir com mais direção.
+            Sim. A estratégia pode ser adaptada tanto para iniciantes quanto para quem já treina e quer sair da estagnação.
           </p>
         </details>
 
         <details class="glass rounded-3xl p-6">
           <summary class="cursor-pointer font-bold text-lg">
-            Vou precisar fazer algo extremo?
+            Vou precisar fazer dieta extrema?
           </summary>
           <p class="text-white/70 mt-4 leading-relaxed">
-            Não. A proposta é construir resultado com consistência, estratégia e ajustes inteligentes, sem terrorismo ou métodos insustentáveis.
+            Não. O foco é criar uma estratégia sustentável, aplicável e alinhada ao seu objetivo.
           </p>
         </details>
       </div>
@@ -449,7 +529,7 @@
   </section>
 
   <!-- CTA -->
-  <section id="contato" class="section py-32 relative">
+  <section id="contato" class="section py-28 relative">
     <div class="watermark"></div>
     <div class="dark-overlay"></div>
 
@@ -462,11 +542,11 @@
       </span>
 
       <h2 class="text-4xl lg:text-7xl font-black mt-6 leading-none">
-        Seu físico não precisa de mais tentativa. Precisa de uma estratégia.
+        Pare de tentar sozinho. Comece com direção.
       </h2>
 
       <p class="text-white/70 text-xl mt-8 leading-relaxed max-w-3xl mx-auto">
-        Clique no botão abaixo e fale diretamente pelo WhatsApp para entender o melhor caminho para iniciar seu acompanhamento.
+        Clique no botão abaixo e fale diretamente pelo WhatsApp para entender como iniciar seu acompanhamento.
       </p>
 
       <a href="https://wa.me/5500000000000"
