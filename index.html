@@ -1,354 +1,595 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carlos França | Personal Trainer</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
+<title>Carlos França | Performance & Estética</title>
 
-    html{
-      scroll-behavior:smooth;
-    }
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body{
-      background:#050505;
-      color:white;
-      font-family:Arial, Helvetica, sans-serif;
-      overflow-x:hidden;
-    }
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily:{
+sans:['Plus Jakarta Sans','sans-serif']
+},
+colors:{
+brand:{
+dark:'#050505',
+green:'#0C9B2D',
+red:'#A5142B',
+white:'#F5F5F5'
+}
+}
+}
+}
+}
+</script>
 
-    .section{
-      position:relative;
-      overflow:hidden;
-    }
+<style>
 
-    /* WATERMARK */
-    .watermark{
-      position:absolute;
-      inset:0;
-      background-image:url('./watermark.jpg');
-      background-repeat:no-repeat;
-      background-position:center;
-      background-size:contain;
-      opacity:0.05;
-      z-index:0;
-      pointer-events:none;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    /* OVERLAY */
-    .dark-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.92),
-        rgba(0,0,0,0.85),
-        rgba(0,0,0,0.92)
-      );
-      z-index:1;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    /* CONTEÚDO */
-    .content{
-      position:relative;
-      z-index:2;
-    }
+body{
+background:#050505;
+overflow-x:hidden;
+font-family:'Plus Jakarta Sans',sans-serif;
+color:#fff;
+}
 
-    /* GLOW */
-    .green-glow{
-      position:absolute;
-      width:400px;
-      height:400px;
-      background:#00a82d;
-      filter:blur(160px);
-      opacity:.18;
-      border-radius:999px;
-    }
+/* GRID */
 
-    .red-glow{
-      position:absolute;
-      width:350px;
-      height:350px;
-      background:#b10f2e;
-      filter:blur(150px);
-      opacity:.12;
-      border-radius:999px;
-    }
+.grid-overlay{
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:40px 40px;
+}
 
-    /* GLASS */
-    .glass{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
-      backdrop-filter:blur(10px);
-    }
+/* GLOW */
 
-    /* BOTÃO */
-    .btn-main{
-      background:linear-gradient(90deg,#009b2a,#0fd14b);
-      color:white;
-      font-weight:bold;
-      transition:.3s;
-    }
+.glow-green{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:999px;
+background:rgba(12,155,45,.16);
+filter:blur(120px);
+pointer-events:none;
+z-index:1;
+}
 
-    .btn-main:hover{
-      transform:translateY(-4px);
-      box-shadow:0 0 30px rgba(0,168,45,.35);
-    }
+.glow-red{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:999px;
+background:rgba(165,20,43,.16);
+filter:blur(120px);
+pointer-events:none;
+z-index:1;
+}
 
-    .title-gradient{
-      background:linear-gradient(90deg,#ffffff,#00d13f);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+/* WATERMARK */
 
-  </style>
+.watermark{
+position:absolute;
+inset:0;
+
+background-image:
+linear-gradient(rgba(0,0,0,.88), rgba(0,0,0,.92)),
+url('./watermark.jpg');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+opacity:.18;
+
+pointer-events:none;
+z-index:0;
+}
+
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* CARDS */
+
+.card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(12,155,45,.35);
+}
+
+/* BUTTON */
+
+.primary-btn{
+background:linear-gradient(135deg,#0C9B2D,#087923);
+transition:.3s;
+box-shadow:0 20px 60px rgba(12,155,45,.25);
+}
+
+.primary-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 20px 70px rgba(12,155,45,.4);
+}
+
+/* TITLES */
+
+.section-title{
+line-height:.92;
+letter-spacing:-0.06em;
+}
+
+/* IMAGES */
+
+.hero-image{
+max-height:780px;
+object-fit:cover;
+border-radius:36px;
+border:1px solid rgba(255,255,255,.08);
+position:relative;
+z-index:3;
+}
+
+.about-image{
+width:100%;
+border-radius:36px;
+border:1px solid rgba(255,255,255,.08);
+object-fit:cover;
+position:relative;
+z-index:3;
+}
+
+/* HERO BADGE */
+
+.hero-badge{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+}
+
+/* FLOAT */
+
+.float-animation{
+animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-12px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:3.1rem;
+line-height:.95;
+}
+
+.section-title{
+font-size:3rem !important;
+}
+
+.hero-image{
+max-height:580px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="section min-h-screen flex items-center relative">
+<!-- HERO -->
 
-    <!-- WATERMARK -->
-    <div class="watermark"></div>
+<section class="relative min-h-screen overflow-hidden flex items-center grid-overlay">
 
-    <!-- OVERLAY -->
-    <div class="dark-overlay"></div>
+<div class="watermark"></div>
 
-    <!-- GLOWS -->
-    <div class="green-glow top-[-100px] left-[-120px]"></div>
-    <div class="red-glow bottom-[-100px] right-[-100px]"></div>
+<div class="glow-green top-[-200px] left-[-100px]"></div>
+<div class="glow-red bottom-[-200px] right-[-100px]"></div>
 
-    <!-- CONTEÚDO -->
-    <div class="content max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
+<div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
 
-      <!-- TEXTO -->
-      <div>
+<!-- LEFT -->
 
-        <!-- LOGO -->
-        <img
-          src="./logo.png"
-          alt="Carlos França"
-          class="w-[180px] mb-8"
-        />
+<div class="space-y-8 reveal">
 
-        <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-          CARLOS FRANÇA
-        </span>
+<img
+src="./logo.png"
+alt="Carlos França"
+class="w-56"
+/>
 
-        <h1 class="text-5xl lg:text-7xl font-black leading-none mt-6">
-          Transforme seu físico com quem vive isso há
-          <span class="title-gradient">5 anos na prática.</span>
-        </h1>
+<div class="inline-flex items-center gap-3 border border-white/10 bg-white/5 px-5 py-3 rounded-full text-sm tracking-[0.25em] uppercase text-brand-green font-semibold hero-badge">
+Performance • Estética • Resultado Real
+</div>
 
-        <p class="text-white/70 text-lg leading-relaxed mt-8 max-w-xl">
-          Treino, estratégia e acompanhamento aplicados na vida real.
-          Sem terrorismo nutricional. Sem fórmulas milagrosas.
-          Apenas resultado consistente e sustentável.
-        </p>
+<h1 class="hero-title text-5xl md:text-7xl font-black section-title max-w-4xl">
+Transforme seu físico com estratégia, performance e constância.
+</h1>
 
-        <div class="flex flex-wrap gap-4 mt-10">
+<p class="text-zinc-400 text-xl leading-relaxed max-w-2xl">
+Treino e nutrição aplicados de forma inteligente para quem busca evolução estética, definição muscular e performance sem extremismos.
+</p>
 
-          <a href="#contato"
-            class="btn-main px-8 py-4 rounded-full">
-            QUERO TRANSFORMAR MEU FÍSICO
-          </a>
+<div class="flex flex-wrap gap-5 pt-2">
 
-          <a href="#sobre"
-            class="glass px-8 py-4 rounded-full">
-            Conhecer mais
-          </a>
+<a
+href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
+class="primary-btn px-10 py-5 rounded-2xl font-bold text-lg"
+>
+QUERO COMEÇAR AGORA
+</a>
 
-        </div>
+</div>
 
-      </div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-10 pt-10">
 
-      <!-- FOTO HERO -->
-      <div class="relative flex justify-center">
+<div>
+<h3 class="text-4xl font-black text-brand-green">5+</h3>
+<p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
+anos de vivência em competições
+</p>
+</div>
 
-        <div class="absolute inset-0 bg-green-500/10 blur-3xl rounded-full"></div>
+<div>
+<h3 class="text-4xl font-black text-brand-red">1000+</h3>
+<p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
+vidas transformadas
+</p>
+</div>
 
-        <img
-          src="./hero.jpg"
-          alt="Carlos França"
-          class="relative z-10 w-full max-w-[520px] object-contain"
-        />
+<div>
+<h3 class="text-4xl font-black">Online</h3>
+<p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
+consultoria personalizada
+</p>
+</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </section>
+<!-- RIGHT -->
 
-  <!-- SOBRE -->
-  <section id="sobre" class="section py-28 relative">
+<div class="relative flex justify-center reveal">
 
-    <div class="watermark"></div>
-    <div class="dark-overlay"></div>
+<div class="absolute w-[420px] h-[420px] rounded-full bg-brand-green/20 blur-[120px] z-[1]"></div>
 
-    <div class="content max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+<div class="absolute -top-5 -right-5 hero-badge rounded-2xl px-6 py-4 z-[4]">
+<p class="text-sm uppercase tracking-[0.25em] text-brand-green font-semibold">
+Alta Performance
+</p>
+</div>
 
-      <!-- FOTO -->
-      <div>
+<img
+src="./hero.jpg"
+alt="Carlos França"
+class="hero-image float-animation"
+/>
 
-        <img
-          src="./about.jpg"
-          alt="Carlos França"
-          class="rounded-3xl w-full shadow-2xl"
-        />
+</div>
 
-      </div>
+</div>
 
-      <!-- TEXTO -->
-      <div>
+</section>
 
-        <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-          EXPERIÊNCIA REAL
-        </span>
+<!-- PROBLEMA -->
 
-        <h2 class="text-4xl lg:text-6xl font-black leading-none mt-5">
-          Experiência prática aplicada à transformação física.
-        </h2>
+<section class="relative py-32 overflow-hidden">
 
-        <p class="text-white/70 leading-relaxed mt-8 text-lg">
-          Carlos França une treino, nutrição e experiência prática em competições
-          para ajudar pessoas a construírem um físico forte, estético e sustentável.
-        </p>
+<div class="watermark"></div>
 
-        <p class="text-white/70 leading-relaxed mt-6 text-lg">
-          Sua abordagem combina performance, consistência e estratégia individual
-          para gerar resultado sem métodos extremos ou protocolos genéricos.
-        </p>
+<div class="glow-red top-[-250px] right-[-120px]"></div>
 
-        <div class="grid grid-cols-2 gap-6 mt-10">
+<div class="max-w-6xl mx-auto px-6 relative z-[2]">
 
-          <div class="glass rounded-3xl p-6">
-            <h3 class="text-4xl font-black text-green-500">5+</h3>
-            <p class="text-white/70 mt-2">Anos de vivência prática</p>
-          </div>
+<div class="max-w-3xl mb-20 reveal">
 
-          <div class="glass rounded-3xl p-6">
-            <h3 class="text-4xl font-black text-red-500">100%</h3>
-            <p class="text-white/70 mt-2">Foco em resultado real</p>
-          </div>
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
+O problema
+</span>
 
-        </div>
+<h2 class="text-4xl md:text-6xl font-black mt-6 section-title">
+Seu corpo não muda por falta de esforço.
+</h2>
 
-      </div>
+<p class="text-zinc-400 text-xl mt-8 leading-relaxed">
+A maioria das pessoas vive presa entre dietas extremas, treinos sem direção e resultados que nunca permanecem.
+</p>
 
-    </div>
+</div>
 
-  </section>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-  <!-- DIFERENCIAIS -->
-  <section class="section py-28 relative">
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Dietas extremas
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Protocolos impossíveis de sustentar no longo prazo.
+</p>
+</div>
 
-    <div class="watermark"></div>
-    <div class="dark-overlay"></div>
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Treinos aleatórios
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Muito esforço e pouca estratégia aplicada.
+</p>
+</div>
 
-    <div class="content max-w-7xl mx-auto px-6">
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Resultados temporários
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Você evolui por um período e depois volta ao início.
+</p>
+</div>
 
-      <div class="text-center max-w-3xl mx-auto">
+<div class="card rounded-[28px] p-8 reveal">
+<h3 class="text-2xl font-bold mb-5">
+Baixa autoestima
+</h3>
+<p class="text-zinc-500 leading-relaxed">
+Seu físico começa a afetar confiança e energia.
+</p>
+</div>
 
-        <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-          DIFERENCIAIS
-        </span>
+</div>
 
-        <h2 class="text-4xl lg:text-6xl font-black mt-5">
-          O que torna esse acompanhamento diferente?
-        </h2>
+</div>
 
-      </div>
+</section>
 
-      <div class="grid md:grid-cols-3 gap-8 mt-20">
+<!-- MÉTODO -->
 
-        <div class="glass rounded-3xl p-10">
+<section class="relative py-32 overflow-hidden">
 
-          <h3 class="text-2xl font-bold mb-5 text-green-500">
-            Estratégia personalizada
-          </h3>
+<div class="watermark"></div>
 
-          <p class="text-white/70 leading-relaxed">
-            Nada de protocolo genérico.
-            Cada pessoa recebe uma estrutura baseada na sua realidade,
-            rotina e objetivo.
-          </p>
+<div class="glow-green bottom-[-250px] left-[-100px]"></div>
 
-        </div>
+<div class="max-w-6xl mx-auto px-6 relative z-[2]">
 
-        <div class="glass rounded-3xl p-10">
+<div class="text-center max-w-4xl mx-auto mb-24 reveal">
 
-          <h3 class="text-2xl font-bold mb-5 text-red-500">
-            Experiência prática
-          </h3>
+<span class="text-brand-red uppercase tracking-[0.25em] text-sm font-semibold">
+Método Carlos França
+</span>
 
-          <p class="text-white/70 leading-relaxed">
-            Aplicação real de treino e nutrição baseada em experiência,
-            consistência e vivência competitiva.
-          </p>
+<h2 class="text-5xl md:text-6xl font-black mt-6 section-title">
+Performance. Estética. Consistência.
+</h2>
 
-        </div>
+<p class="text-zinc-400 text-xl mt-8 leading-relaxed">
+Uma metodologia construída através da prática em competições e aplicada para gerar resultados reais sem destruir sua rotina.
+</p>
 
-        <div class="glass rounded-3xl p-10">
+</div>
 
-          <h3 class="text-2xl font-bold mb-5 text-white">
-            Resultado sustentável
-          </h3>
+<div class="grid md:grid-cols-3 gap-8">
 
-          <p class="text-white/70 leading-relaxed">
-            O foco é transformar o físico sem destruir sua rotina,
-            sua saúde ou sua relação com alimentação.
-          </p>
+<div class="card rounded-[32px] p-10 reveal">
 
-        </div>
+<div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mb-8">
+<i data-lucide="dumbbell" class="w-8 h-8 text-brand-green"></i>
+</div>
 
-      </div>
+<h3 class="text-3xl font-bold mb-6">
+Treino Inteligente
+</h3>
 
-    </div>
+<p class="text-zinc-400 leading-relaxed">
+Treinos estruturados para evolução física real.
+</p>
 
-  </section>
+</div>
 
-  <!-- CTA -->
-  <section id="contato" class="section py-32 relative">
+<div class="card rounded-[32px] p-10 reveal">
 
-    <div class="watermark"></div>
-    <div class="dark-overlay"></div>
+<div class="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center mb-8">
+<i data-lucide="apple" class="w-8 h-8 text-brand-red"></i>
+</div>
 
-    <div class="green-glow bottom-[-150px] left-[20%]"></div>
+<h3 class="text-3xl font-bold mb-6">
+Nutrição Estratégica
+</h3>
 
-    <div class="content max-w-5xl mx-auto px-6 text-center">
+<p class="text-zinc-400 leading-relaxed">
+Planejamento alimentar pensado para resultado sustentável.
+</p>
 
-      <span class="uppercase tracking-[4px] text-green-500 text-sm font-bold">
-        COMECE AGORA
-      </span>
+</div>
 
-      <h2 class="text-4xl lg:text-7xl font-black mt-6 leading-none">
-        Seu físico pode mudar nos próximos meses.
-      </h2>
+<div class="card rounded-[32px] p-10 reveal">
 
-      <p class="text-white/70 text-xl mt-8 leading-relaxed max-w-3xl mx-auto">
-        O próximo nível exige estratégia, consistência e direção certa.
-        Comece agora seu acompanhamento.
-      </p>
+<div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8">
+<i data-lucide="activity" class="w-8 h-8 text-white"></i>
+</div>
 
-      <a href="https://wa.me/5500000000000"
-        target="_blank"
-        class="btn-main inline-block px-12 py-5 rounded-full text-lg mt-12">
-        FALAR NO WHATSAPP
-      </a>
+<h3 class="text-3xl font-bold mb-6">
+Alta Performance
+</h3>
 
-    </div>
+<p class="text-zinc-400 leading-relaxed">
+Mais disposição, definição e evolução constante.
+</p>
 
-  </section>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section class="relative py-32 overflow-hidden">
+
+<div class="watermark"></div>
+
+<div class="glow-green top-[-200px] left-[-120px]"></div>
+
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
+
+<div class="reveal relative">
+
+<div class="absolute -bottom-6 -left-6 hero-badge rounded-3xl px-8 py-6 z-[5]">
+<h3 class="text-4xl font-black text-brand-green">5+</h3>
+<p class="text-zinc-400 text-sm uppercase tracking-[0.2em] mt-2">
+anos de experiência
+</p>
+</div>
+
+<img
+src="./about.jpg"
+alt="Carlos França"
+class="about-image"
+/>
+
+</div>
+
+<div class="reveal">
+
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
+Carlos França
+</span>
+
+<h2 class="text-5xl font-black mt-6 mb-8 section-title">
+Experiência prática aplicada à transformação física.
+</h2>
+
+<div class="space-y-6 text-zinc-400 text-lg leading-relaxed">
+
+<p>
+Carlos França une treino, nutrição e experiência prática em competições para ajudar pessoas a construírem um físico forte, estético e sustentável.
+</p>
+
+<p>
+Sua abordagem combina performance, estética e consistência sem extremismos.
+</p>
+
+<p>
+Tudo aplicado de forma personalizada para sua realidade e objetivo.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="relative py-32 overflow-hidden">
+
+<div class="watermark"></div>
+
+<div class="glow-green bottom-[-200px] left-[-100px]"></div>
+<div class="glow-red top-[-200px] right-[-100px]"></div>
+
+<div class="max-w-4xl mx-auto px-6 text-center relative z-[2] reveal">
+
+<span class="text-brand-red uppercase tracking-[0.25em] text-sm font-semibold">
+Consultoria personalizada
+</span>
+
+<h2 class="text-5xl md:text-7xl font-black mt-8 section-title">
+Sua melhor versão começa agora.
+</h2>
+
+<p class="text-zinc-400 text-xl leading-relaxed mt-10 max-w-2xl mx-auto">
+Clique no botão abaixo e fale diretamente comigo para iniciar sua transformação física.
+</p>
+
+<a
+href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
+class="inline-flex mt-14 primary-btn px-12 py-6 rounded-2xl font-black text-lg"
+>
+QUERO MINHA CONSULTORIA
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+lucide.createIcons();
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+
+reveals.forEach((element)=>{
+
+const windowHeight = window.innerHeight;
+const elementTop = element.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 80){
+element.classList.add('active');
+}
+
+});
+
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+revealOnScroll();
+
+</script>
 
 </body>
 </html>
+```
